@@ -1,0 +1,8 @@
+# development cache
+docs/.vitepress/cache
+
+# IDE configuration files
+.idea
+
+# dependences
+node_modules
