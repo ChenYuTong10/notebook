@@ -2,7 +2,7 @@
 export default {
     lang: "en-US",
     title: "Ten's Note",
-    description: "A note underlying VitePress",
+    description: "Online note space powered by VitePress",
     lastUpdated: true,
     themeConfig: {
         logo: "/logo.svg",
@@ -11,28 +11,13 @@ export default {
             { icon: 'github', link: 'https://github.com/ChenYuTong10/10note' }
         ],
 
-        sidebar: [
-            {
-                text: 'Section Title A',
-                collapsed: true,
-                items: [
-                    { text: 'Item A', link: '/item-a' },
-                    { text: 'Item B', link: '/item-b' },
-                ]
-            },
-            {
-                text: 'Section Title B',
-                collapsed: true,
-                items: [
-                    { text: 'Item C', link: '/item-c' },
-                    { text: 'Item D', link: '/item-d' },
-                ]
-            }
-        ],
-
         editLink: {
             pattern: 'https://github.com/vuejs/vitepress/edit/main/docs/:path',
             text: 'Edit this page on GitHub'
+        },
+
+        footer: {
+            message: "👮<a target='_blank' href='https://beian.miit.gov.cn/'>粤ICP备2022121173号</a>"
         },
     }
 };
