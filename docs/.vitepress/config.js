@@ -3,9 +3,22 @@ export default {
     lang: "en-US",
     title: "Ten's Note",
     description: "Online note space powered by VitePress",
+    cleanUrls: true,
     lastUpdated: true,
     themeConfig: {
         logo: "/logo.svg",
+
+        sidebar: {
+            "/docker/": [
+                {
+                    text: 'Docker',
+                    collapsed: true,
+                    items: [
+                        { text: 'Nginx Configuration', link: '/docker/nginx' }
+                    ]
+                }
+            ]
+        },
 
         socialLinks: [
             { icon: 'github', link: 'https://github.com/ChenYuTong10/10note' }
