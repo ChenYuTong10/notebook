@@ -12,7 +12,7 @@ export default {
         ],
 
         editLink: {
-            pattern: 'https://github.com/vuejs/vitepress/edit/main/docs/:path',
+            pattern: 'https://github.com/ChenYuTong10/10note/edit/master/docs/:path',
             text: 'Edit this page on GitHub'
         },
 
