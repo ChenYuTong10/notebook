@@ -1,28 +1,25 @@
-# ⚙️ Centralized Management System
+---
+layout: home
 
-Centralized Management System is a repository including some normal softwares, such as `nginx`, `jenkins`, which are used to centrally manage web application.
+title: Ten's Note Space
+titleTemplate: VitePress Powered Online Space
 
-To setup these softwares more easily, The repository is based on **Docker**. It provides their corresponding *Dockerfile* and *docker-compose.yml*.
+hero:
+  text: VitePress Powered Online Note Space
+  tagline: 😀 Do and record something interesting I like. 🥳
+  actions:
+    - theme: brand
+      text: Take a look
+      link: https://chouyatou.live
+    - theme: alt
+      text: View on GitHub
+      link: https://chouyatou.live
 
-# 💡 Problems
-
-1. The image pulling from registry is slow in China.
-
-    It is a normal phenomenon that pulling image from docker hub is slow in China. So changing the registry to specific CR maintaining by each service provider is a good idea.
-
-    There are multiple crs you can choose. You can get the speend of these mirrors on this [page](https://github.com/docker-practice/docker-registry-cn-mirror-test). 
-    - Official registry: https://docker.io, https://registry.hub.docker.com, https://registry-1.docker.io
-    - Google registry: https://mirror.gcr.io
-    - Baidu registry: https://mirror.baidubce.com
-    - Netease registry: https://hub-mirror.c.163.com
-    - USTC registry: https://docker.mirrors.ustc.edu.cn
-    - Aliyun registry: https://www.aliyun.com/product/acr
-
-    When you select one of those, execute following command:
-    ```bash
-    $ sudo tee /etc/docker/daemon.json <<-'EOF' { "registry-mirrors": [
-    "your mirror address"] } EOF
-    $ sudo systemctl daemon-reload
-    $ sudo systemctl restart docker
-    ``` 
-    Now you can try to pull the image again.
+features:
+  - title: Coding
+    details: I love writing some codes like timed script to provide convenience to my life. What's more, I am interested in building something independ-ently, such as a toy database. I am still working hard.🔨
+  - title: Tailor
+    details: When I play my phone in my spare time, some ideas may pop up in my mind💡. Thus, I would like to record the videos and be a tailor to cut them up and sew them up. ✂️
+  - title: Others
+    details: There is no more introduction about myself. As the tagline says, do something interesting I like. But it is a fancy. The pressure from survival and messy things in my life is disturbing me. I hope the fancy maybe be true in one day. 🔮
+---
