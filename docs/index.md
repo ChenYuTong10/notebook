@@ -10,10 +10,10 @@ hero:
   actions:
     - theme: brand
       text: Take a look
-      link: https://chouyatou.live
+      link: https://github.com/ChenYuTong10/10note
     - theme: alt
       text: View on GitHub
-      link: https://chouyatou.live
+      link: https://github.com/ChenYuTong10/10note
 
 features:
   - title: Coding
