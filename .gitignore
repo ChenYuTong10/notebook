@@ -1,6 +1,9 @@
 # development cache
 docs/.vitepress/cache
 
+# build files
+docs/.vitepress/dist
+
 # IDE configuration files
 .idea
 
