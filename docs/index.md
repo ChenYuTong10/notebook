@@ -2,7 +2,7 @@
 layout: home
 
 title: Ten's Note Space
-titleTemplate: VitePress Powered Online Space
+titleTemplate: VitePress Powered Online Note Space
 
 hero:
   text: VitePress Powered Online Note Space
@@ -10,7 +10,7 @@ hero:
   actions:
     - theme: brand
       text: Take a look
-      link: https://github.com/ChenYuTong10/10note
+      link: /docker/nginx
     - theme: alt
       text: View on GitHub
       link: https://github.com/ChenYuTong10/10note
