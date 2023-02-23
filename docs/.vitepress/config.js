@@ -14,7 +14,8 @@ export default {
                     text: 'Docker',
                     collapsed: true,
                     items: [
-                        { text: 'Nginx Configuration', link: '/docker/nginx' }
+                        { text: 'Nginx Configuration', link: '/docker/nginx' },
+                        { text: 'Jenkins Configuration', link: '/docker/jenkins' }
                     ]
                 }
             ]
