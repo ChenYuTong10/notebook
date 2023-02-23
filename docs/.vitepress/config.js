@@ -1,7 +1,7 @@
 // VitePress Configuration: https://github.com/vuejs/vitepress/blob/main/docs/.vitepress/config.ts
 export default {
     lang: "en-US",
-    title: "Ten's Note",
+    title: "Ten's Note Space",
     description: "Online note space powered by VitePress",
     cleanUrls: true,
     lastUpdated: true,
