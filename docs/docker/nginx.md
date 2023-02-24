@@ -148,4 +148,4 @@ Finally, open your web browser and test [https://127.0.0.1](https://127.0.0.1/).
 ## 📦 Conclusion
 
 This note only gives the main configuration of the whole. If you need more, you can search it by yourself.
-This is my real [configuration]((https://github.com/ChenYuTong10/10note/releases/tag/0.0)) on production environment. You can have a reference if interested it.
+This is my real [configuration](https://github.com/ChenYuTong10/10note/releases/tag/0.0) on production environment. You can have a reference if interested it.
