@@ -9,7 +9,7 @@ hero:
   tagline: 😀 Do and record something interesting I like. 🥳
   actions:
     - theme: brand
-      text: Take a look
+      text: Have a look
       link: /docker/nginx
     - theme: alt
       text: View on GitHub
