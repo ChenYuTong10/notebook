@@ -1,8 +1,8 @@
 ---
 layout: home
 
-title: Ten's Note Space
-titleTemplate: VitePress Powered Online Note Space
+title: Ten's Note
+titleTemplate: VitePress Powered Online Note
 
 hero:
   text: VitePress Powered Online Note Space
@@ -17,9 +17,9 @@ hero:
 
 features:
   - title: Coding
-    details: I love writing some codes like timed script to provide convenience to my life. What's more, I am interested in building something independ-ently, such as a toy database. I am still working hard.🔨
+    details: I love writing some codes like timed script to provide convenience to my life. What's more, I am interested in building system software like database and os. I am still working hard.🔨
   - title: Tailor
     details: When I play my phone in my spare time, some ideas may pop up in my mind💡. Thus, I would like to record the videos and be a tailor to cut them up and sew them up. ✂️
   - title: Others
-    details: There is no more introduction about myself. As the tagline says, do something interesting I like. But it is a fancy. The pressure from survival and messy things in my life is disturbing me. I hope the fancy maybe be true in one day. 🔮
+    details: There is no more introduction about myself. As the tagline says, do something interesting I like. I love coding, being a tailor and being happy every day!🔮
 ---
