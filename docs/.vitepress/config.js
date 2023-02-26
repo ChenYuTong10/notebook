@@ -8,18 +8,23 @@ export default {
     themeConfig: {
         logo: "/logo.svg",
 
-        sidebar: {
-            "/docker/": [
-                {
-                    text: 'Docker',
-                    collapsed: true,
-                    items: [
-                        { text: 'Nginx Configuration', link: '/docker/nginx' },
-                        { text: 'Jenkins Configuration', link: '/docker/jenkins' }
-                    ]
-                }
-            ]
-        },
+        sidebar: [
+            {
+                text: 'Docker',
+                collapsed: true,
+                items: [
+                    { text: 'Nginx Configuration', link: '/docker/nginx' },
+                    { text: 'Jenkins Configuration', link: '/docker/jenkins' }
+                ]
+            },
+            {
+                text: "Compiler",
+                collapsed: true,
+                items: [
+                    { text: "▶️ Getting Started", link: "/compiler/getting-started" },
+                ]
+            }
+        ],
 
         socialLinks: [
             { icon: 'github', link: 'https://github.com/ChenYuTong10/10note' }
