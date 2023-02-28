@@ -1,4 +1,4 @@
-# ⚙️ Jenkins Configuration
+# ⚙️ Jenkins
 
 ## 👀 What is jenkins
 

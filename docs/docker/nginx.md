@@ -1,4 +1,4 @@
-# ⚙️ Nginx Configuration
+# ⚙️ Nginx
 
 ## 👀 What is nginx
 
