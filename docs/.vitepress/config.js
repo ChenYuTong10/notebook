@@ -11,7 +11,7 @@ export default {
         sidebar: [
             {
                 text: 'Docker',
-                collapsed: true,
+                collapsed: false,
                 items: [
                     { text: 'Nginx Configuration', link: '/docker/nginx' },
                     { text: 'Jenkins Configuration', link: '/docker/jenkins' }
@@ -19,7 +19,7 @@ export default {
             },
             {
                 text: "Compiler",
-                collapsed: true,
+                collapsed: false,
                 items: [
                     { text: "▶️ Getting Started", link: "/compiler/getting-started" },
                 ]
