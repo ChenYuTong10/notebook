@@ -77,9 +77,13 @@ The last step is **translating** our program to the goal. It can be assembly lan
    In the float number, according to IEEE, NaN * 0 = NaN.
    :::
 
+    Sometimes, we also use some shorthands instead of some verbose expressions.
+    For example, replace the expression `be similar to` by `akin to`.
+
 5. Code Generation
 
     Now the compiler translates the optimized program into another language.
+    Finally, your program can be run on your PC.
 
 ### ⚔️ Comparison between ancient and modern compiler
 
