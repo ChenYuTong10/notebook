@@ -22,6 +22,7 @@ export default {
                 collapsed: false,
                 items: [
                     { text: "▶️ Getting Started", link: "/compiler/getting-started" },
+                    { text: "1️⃣ Lexical Analysis", link: "/compiler/lexical-analysis" },
                 ]
             }
         ],
