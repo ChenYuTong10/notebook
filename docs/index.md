@@ -1,15 +1,15 @@
 ---
 layout: home
 
-title: Ten's Note
-titleTemplate: VitePress Powered Online Note
+title: Notebook
+titleTemplate: VitePress Powered Online Notebook
 
 hero:
   text: VitePress Powered Online Note Space
   tagline: 😀 Do and record something interesting I like. 🥳
   actions:
     - theme: brand
-      text: Have a look
+      text: Get Started
       link: /docker/nginx
     - theme: alt
       text: View on GitHub

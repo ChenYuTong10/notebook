@@ -1,8 +1,8 @@
 // VitePress Configuration: https://github.com/vuejs/vitepress/blob/main/docs/.vitepress/config.ts
 export default {
     lang: "en-US",
-    title: "Ten's Note",
-    description: "Online note powered by VitePress",
+    title: "Notebook",
+    description: "Online notebook powered by VitePress",
     cleanUrls: true,
     lastUpdated: true,
     themeConfig: {
