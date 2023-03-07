@@ -28,11 +28,11 @@ export default {
         ],
 
         socialLinks: [
-            { icon: 'github', link: 'https://github.com/ChenYuTong10/10note' }
+            { icon: 'github', link: 'https://github.com/ChenYuTong10/notebook' }
         ],
 
         editLink: {
-            pattern: 'https://github.com/ChenYuTong10/10note/edit/master/docs/:path',
+            pattern: 'https://github.com/ChenYuTong10/notebook/edit/master/docs/:path',
             text: 'Edit this page on GitHub'
         },
 
