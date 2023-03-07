@@ -10,11 +10,11 @@ export default {
 
         sidebar: [
             {
-                text: 'Docker',
+                text: 'Application',
                 collapsed: false,
                 items: [
-                    { text: 'Nginx', link: '/docker/nginx' },
-                    { text: 'Jenkins', link: '/docker/jenkins' }
+                    { text: 'Docker', link: '/application/docker' },
+                    { text: 'Nginx', link: '/application/nginx' },
                 ]
             },
             {
