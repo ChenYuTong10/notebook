@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     steps:
-      - name: Print context
+      - name: Check context
         run: |
           echo "The job was automatically triggered by a ${{ github.event_name }} event."
           echo "This job is now running on a ${{ runner.os }} server hosted by GitHub!"
@@ -30,6 +30,10 @@ jobs:
       - name: Build docs
         run: npm run docs:build
 
+      # Before running GitHub actions, you need to generate a pair of ssh key
+      # using 'ssh-keygen -m PEM -t rsa -b 4096' command.
+      # And store the private key into repository secret and the public key
+      # into remote server authorized keys under the `/home/$USER/.ssh/authorized_keys`.
       - name: Deploy docs
         uses: easingthemes/ssh-deploy@main
         env:
