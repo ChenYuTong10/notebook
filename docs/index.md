@@ -10,10 +10,10 @@ hero:
   actions:
     - theme: brand
       text: Get Started
-      link: /docker/nginx
+      link: /application/docker
     - theme: alt
       text: View on GitHub
-      link: https://github.com/ChenYuTong10/10note
+      link: https://github.com/ChenYuTong10/notebook
 
 features:
   - title: Coding
