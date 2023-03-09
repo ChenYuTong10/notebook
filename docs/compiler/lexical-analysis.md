@@ -23,7 +23,7 @@ These substrings recognized we call them **lexemes**.
 
 Let's look at an example.
 
-```c++
+```cpp
 /* comparison or equal */
 std::cout << i == j << "\n";
 ```
@@ -238,7 +238,7 @@ So naturally we can use a table to record the relation between states and input 
 
 And the core of the lexer may like this.
 
-```c++
+```cpp
 #include <string>
 
 /* Here needs a DFA relation table */

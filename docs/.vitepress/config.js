@@ -23,6 +23,7 @@ export default {
                 items: [
                     { text: "▶️ Getting Started", link: "/compiler/getting-started" },
                     { text: "1️⃣ Lexical Analysis", link: "/compiler/lexical-analysis" },
+                    { text: "2️⃣ Parsing", link: "/compiler/parsing" },
                 ]
             }
         ],
@@ -37,7 +38,7 @@ export default {
         },
 
         footer: {
-            message: "👮<a target='_blank' href='https://beian.miit.gov.cn/'>粤ICP备2022121173号</a>"
+            message: "👮<a target='_blank' href='https://beian.miit.gov.cn/'>Guangdong ICP No. 2022121173</a>",
         },
     }
 };
