@@ -5,8 +5,9 @@ title: Notebook
 titleTemplate: VitePress Powered Online Notebook
 
 hero:
-  text: VitePress Powered Online Note Space
-  tagline: 😀 Do and record something interesting I like. 🥳
+  name: Notebook
+  text: VitePress Powered Online NoteBook
+  tagline: 😀 Do and record anything interesting I like. 🥳
   actions:
     - theme: brand
       text: Get Started
@@ -16,10 +17,16 @@ hero:
       link: https://github.com/ChenYuTong10/notebook
 
 features:
-  - title: Coding
-    details: I love writing some codes like timed script to provide convenience to my life. What's more, I am interested in building system software like database and os. I am still working hard.🔨
-  - title: Tailor
-    details: When I play my phone in my spare time, some ideas may pop up in my mind💡. Thus, I would like to record the videos and be a tailor to cut them up and sew them up. ✂️
-  - title: Others
-    details: There is no more introduction about myself. As the tagline says, do something interesting I like. I love coding, being a tailor and being happy every day!🔮
+  - icon: 💻 
+    title: Application Guide
+    details: Effortlessly install and configure application with simple steps.
+  - icon: 🔍
+    title: Principle Introduction
+    details: Introduce the underlying principle of system in personal view.
+  - icon: 🔮
+    title: Resource Sharing
+    details: Share good resources, such as beautiful fonts, icons and so on.
+  - icon: 💡
+    title: Idea Record
+    details: Record some messy ideas without deep consideration.
 ---
