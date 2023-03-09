@@ -53,18 +53,19 @@ These pairs we call them **tokens**.
 
 ## 🔍 How does LA do
 
-### 📑 Regular Expression
-
 Let's think about a question. What should we do before doing the lexical analysis?
 Think about the language syntax? Yes, you are right.
 
 To analyse a language, we need to know what rules the language should observe.
+We give an abstract noun called **Regular Language**. It is a set of strings
+described by the **Regular Expression** and recognized by **Finite Automata**.
+
+### 📑 Regular Expression
+
 So we need a formal language to specific the language. That is **regular expression**.
 
-Regular expression is the syntax we usually write in code editor.
+**Regular Expression** is a formal language to specific the language rules.
 Importantly, it is only the specification of a language **not implementation**.
-
-> **Regular language** is a set of strings defined by regular expression.
 
 There are five basic constructs of regular expressions.
 
