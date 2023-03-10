@@ -1,10 +1,10 @@
-.mjx-container
+mjx-container
 {
     display: inline-block;
     margin: auto 2px -2px;
 }
 
-.mjx-container > svg
+mjx-container > svg
 {
     margin: auto;
 }
