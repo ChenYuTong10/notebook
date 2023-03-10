@@ -69,13 +69,13 @@ Importantly, it is only the specification of a language **not implementation**.
 
 There are five basic constructs of regular expressions.
 
-|        Construct        |                        Description                        |
-|:-----------------------:|:---------------------------------------------------------:|
-|  Empty string(Epsilon)  |                   ε = &lcub; "" &rcub;                    |
-| Single character string |                     &lcub; "a" &rcub;                     |
-|      Union string       |       AB = &lcub; a ∈ A, b ∈ B &#124; a ^ b &rcub;        |
-|  Concatenation string   | A + B = &lcub; a ∈ A &#124; a } ^ { b ∈ B &#124; b &rcub; |
-|    Iteration string     |     A* = &lcub; "", "A", "AA", ... , "AA...A" &rcub;      |
+|        Construct        |                         Description                          |
+|:-----------------------:|:------------------------------------------------------------:|
+|  Empty string(Epsilon)  |                        $ε = \{ '' \}$                        |
+| Single character string |                         $\{ 'a' \}$                          |
+|      Union string       |        $AB = \{ a \in A, b \in B \vert a \wedge b \}$        |
+|  Concatenation string   | $A + B = \{ a \in A \vert a \} \wedge \{ b \in B \vert b \}$ |
+|    Iteration string     |              $A ^ * = \{ '', 'A', 'AA', ... \}$              |
 
 Knowing the regular expression, let's look at the whole progress from writing regular expression to lexical analysis.
 
@@ -86,16 +86,16 @@ Knowing the regular expression, let's look at the whole progress from writing re
    - ......
 2. Construct `R` matching all lexemes for all tokens.
    > This is only the union of all regular expression on step 1.
-3. Input `x1...xn` and check whether string `x1...xn` in L(R).
-4. If success, `x1...xn` observes Rj regular expression.
-5. If failed, remove `x1...xn` from input and goto step 3.
+3. Input $x_1x_2...x_n$ and check whether string $x_1x_2...x_n$ in L(R).
+4. If success, $x_1x_2...x_n$ observes Rj regular expression.
+5. If failed, remove $x_1x_2...x_n$ from input and goto step 3.
 
 > L(R) is the set of regular language defined by the regular expression R.
 
 ::: tip 
 Here are some ambiguities we need to solve.
 
-Q1: Assume that there are two input strings `x1...xi` and `x1...xj`(i != j). Both observe Rj regular expression. Which input string do we use?
+Q1: Assume that there are two input strings $x_1x_2...x_i$ and $x_1x_2...x_j$(i != j). Both observe $R_j$ regular expression. Which input string do we use?
 
 A1: This is similar to the problem when the compiler scans the first `=` operator. The answer is **match as long as possible**.
 
@@ -157,37 +157,37 @@ So from the features of NFA and DFA, we usually transform the regular expression
 The problem is how we transform our written regular expressions to the equivalent finite automata.
 Let's try to transform to the NFA firstly. Look at the table.
 
-|        Construct        |    Description    |                           Corresponding NFA                           |
-|:-----------------------:|:-----------------:|:---------------------------------------------------------------------:|
-|  Empty string(Epsilon)  |         ε         |            ![epsilon nfa](/compiler/image/epsilon-nfa.png)            |
-| Single character string | &lcub; "a" &rcub; | ![single character nfa.png](/compiler/image/single-character-nfa.png) |
-|      Union string       |        AB         |            ![union nfa.png](/compiler/image/union-nfa.png)            |
-|  Concatenation string   |       A + B       |    ![concatenation nfa.png](/compiler/image/concatenation-nfa.png)    |
-|    Iteration string     |        A*         |        ![iteration nfa.png](/compiler/image/iteration-nfa.png)        |
+|        Construct        | Description |                           Corresponding NFA                           |
+|:-----------------------:|:-----------:|:---------------------------------------------------------------------:|
+|  Empty string(Epsilon)  |     $ε$     |            ![epsilon nfa](/compiler/image/epsilon-nfa.png)            |
+| Single character string | $\{ 'a' \}$ | ![single character nfa.png](/compiler/image/single-character-nfa.png) |
+|      Union string       |    $AB$     |            ![union nfa.png](/compiler/image/union-nfa.png)            |
+|  Concatenation string   |   $A + B$   |    ![concatenation nfa.png](/compiler/image/concatenation-nfa.png)    |
+|    Iteration string     |   $A ^ *$   |        ![iteration nfa.png](/compiler/image/iteration-nfa.png)        |
 
 Maybe showing an example is more distinct.
 
-Assume there is a regular expression `(1 + 0)*1`. What is its NFA?
+Assume there is a regular expression $(1 + 0) ^ *1$. What is its NFA?
 
-Look at `1` and `0` in brackets. We construct their NFA firstly.
+Look at $1$ and $0$ in brackets. We construct their NFA firstly.
 
 ![regexp to nfa example 1](/compiler/image/regexp-to-nfa-example-1.png)
 
-It is easy! And next we construct `1 + 0`'s NFA. Consider `1`'s NFA with `State A` and `0`'s with `State B`.
+It is easy! And next we construct $1 + 0$ 's NFA. Consider $1$'s NFA with `State A` and $0$ 's with `State B`.
 After that, replace the `State A` and `State B` in `A + B`'s NFA.
 
 ![regexp to nfa example 2](/compiler/image/regexp-to-nfa-example-2.png)
 
-Then it is time to construct `(1 + 0)*`'s NFA. Wrap the whole NFA above with `State A`.
-And replace the `State A` in `A*`'s NFA. It is the same.
+Then it is time to construct $(1 + 0) ^ *$'s NFA. Wrap the whole NFA above with `State A`.
+And replace the `State A` in $A ^ *$'s NFA. It is the same.
 
 ![regexp to nfa example 3](/compiler/image/regexp-to-nfa-example-3.png)
 
-Now it seems large. But don't be afraid. Now let's construct the last `1`'s NFA.
+Now it seems large. But don't be afraid. Now let's construct the last $1$ 's NFA.
 
 ![regexp to nfa example 4](/compiler/image/regexp-to-nfa-example-4.png)
 
-Finally, merge `(1 + 0)*`'s NFA and `1`'s into a NFA.
+Finally, merge $(1 + 0) ^ *$ 's NFA and $1$ 's into a NFA.
 
 ![regexp to nfa example 5](/compiler/image/regexp-to-nfa-example-5.png)
 
@@ -204,7 +204,7 @@ But when it is on state A, it also can have a transition to the `State B`.
 When it is on state B, `State C, D` comes. Finally, it can be the state `State A, B, C, D, H, I`.
 So `ε-closure(G) = { A, B, C, D, G, H, I }`.
 
-> If a NFA has n states, the number of DFA can be transformed from this NFA is 2^n - 1.
+> If a NFA has n states, the number of DFA can be transformed from this NFA is $2^n - 1$.
 
 Now knowing the `ε-closure`, let's start to transform NFA to DFA.
 

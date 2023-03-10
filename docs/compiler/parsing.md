@@ -51,24 +51,24 @@ The Context-Free Grammar(CFG) is a natural notation for this recursive structure
 ### 🧱 Composition
 
 A CFG consists of four parts.
-- A set of terminals (T)
-- A set of non-terminals (N)
-- A start symbol (S, S ∈ N)
-- A set of productions (X → Y1Y2...Yn, X ∈ N, Y ∈ T | N | ε)
+- A set of terminals $(T)$
+- A set of non-terminals $(N)$
+- A start symbol $(S, S \in N)$
+- A set of productions $(X → Y_1Y_2...Y_n, X \in N, Y \in T \vert N \vert ε)$
 
 **Terminal** is the symbol can not be replaced by other symbols.
 > You will be more clear after seeing the following explanation. 
 
-**Production** is a derivation. It means non-terminal `X` can be replaced by the symbols on the right hand.
-Each `Yi` can be either a terminal or a non-terminal or a special symbol `ε`. 
+**Production** is a derivation. It means non-terminal $X$ can be replaced by the symbols on the right hand.
+Each $Y_i$ can be either a terminal or a non-terminal or a special symbol `ε`. 
 
-Let's see a language with a general definition `{ (^i)^i | i >= 0 }`.
+Let's see a language with a general definition $\{ (^i )^i \vert i >= 0 \}$.
 
 We can get the parts of CFG.
-- Terminals `T = { (, ), ε }`
-- Non-terminals `N = { S }`
-- Start symbol `S`
-- Productions `S → (S)`, `S → ε`
+- Terminals $T = \{ (, ), ε \}$
+- Non-terminals $N = \{ S \}$
+- Start symbol $S$
+- Productions $S → (S), S → ε$
 
 🪄 That's all. It is easy!
 
@@ -76,11 +76,11 @@ We can get the parts of CFG.
 
 After getting the CFG productions, we can derive the strings recursively.
 
-For example, we have a production `X → Y1Y2...Yn` and here is a string `X1X2X`.
-We can generate a new string `X1X2Y1Y2...Yn` by replacing `X` to `Y1Y2...Yn`.
+For example, we have a production $X → Y_1Y_2...Y_n$ and here is a string $X_1X_2X$.
+We can generate a new string $X_1X_2Y_1Y_2...Y_n$ by replacing $X$ to $Y_1Y_2...Y_n$.
 This is the context-free grammar derivation.
 
-If we have multiple steps like above, we can derive from start symbol `S` to multiple strings.
+If we have multiple steps like above, we can derive from start symbol $S$ to multiple strings.
 Once the symbols in string are all terminals, the derivation is done.
 
-Then a language `L(G)` defined by context-free grammar `G` is `{ a1...an | ∀i ai ∈ T ^ S → a1...an }`.
+Then a language `L(G)` defined by context-free grammar `G` is $\{ a_1a_2...a_n | \forall i\ a_i ∈ T \wedge S → a_1...a_n \}$.
