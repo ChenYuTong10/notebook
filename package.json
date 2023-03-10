@@ -9,5 +9,7 @@
     "vitepress": "^1.0.0-alpha.44",
     "vue": "^3.2.45"
   },
-  "dependencies": {}
+  "dependencies": {
+    "markdown-it-mathjax3": "^4.3.2"
+  }
 }
