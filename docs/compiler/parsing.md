@@ -158,5 +158,85 @@ From the productions of CFG, we can see:
 - $E'$ generates $E'$ and if we don't want to $E'$, we should generate $id$ or $(E)$.
 
 At the same time, the grammar forces the plus to generate before the times.
-That is why this grammar can remove the ambiguity.
+That is why this grammar works.
 
+However, there is something we need to know. 
+
+It is impossible to transform an ambiguous grammar to an unambiguous one automatically.
+We need to rewrite the grammar manually. 
+
+Writing an ambiguous grammar is comfortable because ambiguity can simplify the grammar 
+and allows us to write it more naturally. But writing an unambiguous one is a headache.
+
+So instead of rewriting the ambiguous grammar directly, we always write the ambiguous grammar along with **disambiguating declarations**.
+Most tools disambiguate grammar through *precedence and associativity declarations*.
+
+Let's look at an example containing [bison](https://www.gnu.org/software/bison/) tool.
+
+There is a CFG with two productions $E → E + E, E → int$.
+The grammar is ambiguous when the string is `int + int + int`.
+Here are two different parse trees of the string.
+
+![cfg ambiguity example](/compiler/image/cfg-ambiguity-example.png)
+
+Now we use bison tool to declare a left associativity of plus `%left +`.
+The parse tree below will be no longer valid after disambiguating grammar.
+
+> `%left +` is the syntax of bison. You can learn about it if you are interested with it.
+
+## 💊 Error Handling
+
+There are many kinds of possible errors.
+
+| Error Kind |         Description          |       Example        |   Detector   |
+|:----------:|:----------------------------:|:--------------------:|:------------:|
+|  Lexical   | Using unrecognized character |       ...$...        |    Lexer     |
+|   Syntax   | Lexical Units make no sense  |        1 +* 2        |    Parser    |
+|  Semantic  | Uncorrected types and so on  | int x = 0, y = x(1); | Type Checker |
+|    ...     |             ...              |         ...          |     ...      |
+
+A good error handler should be:
+- Report the error accurately and clearly.
+- Recover from the error quickly.
+- Not slow down the compilation of valid code.
+
+We are going to introduce three different kinds of error handling.
+
+### 🩼 Panic Mode
+
+Panic mode is the simplest and most popular method in error handling.
+
+The basic idea is that when the compiler detects an error, it will discard tokens until the token can be parsed.
+
+For example, there is an expression `(1 + + 2) + 3`. The compiler will be stuck when encounters the second `+`.
+In panic mode, the compiler will discard the `+` token and skip ahead to the `2`.
+
+In bison tool, a special terminal `error` is used in productions to describe how much input should be skipped.
+
+Look at the production $E → int | E + E | (E) | error\ int | (error)$.
+The compiler will try to find a normal state firstly and 
+then if no state is recognized, the compiler will declare an `error` state.
+The state $error\ int$ shows all tokens before next integer will be discarded
+and the another state $(error)$ indicates everything between parentheses will be thrown.
+
+### 💉 Error Productions
+
+The basic idea of error productions is merging known common mistakes into grammar.
+
+For example, the scientists always write math expression `4x` instead of `4 * x`.
+So when we consider the productions of CFG, we will add the production $E → E * E \vert EE$.
+
+But merging the error into productions may complicate the language grammar.
+
+### 🩹 Error Correction
+
+Error correction will try to insert or delete the tokens to correct program automatically.
+When the compiler meets an error, it will exhaustive search a program as close as possible
+to the original program and corrects the error.
+
+> Here you will touch **the minimum edit distance algorithm**.
+
+It sounds good, right? However, it is hard to implement a compiler like this.
+
+1. Where to insert or delete the fragments in program? Where to find the closest program?
+2. The resources used to search the program and correct the errors will slow down the speed of parsing valid program.
