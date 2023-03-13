@@ -113,32 +113,56 @@ export default {
     themeConfig: {
         logo: "/logo.svg",
 
-        sidebar: [
-            {
-                text: 'Application',
-                collapsed: false,
-                items: [
-                    { text: 'Docker', link: '/application/docker' },
-                    { text: 'Nginx', link: '/application/nginx' },
-                ]
-            },
-            {
-                text: "Compiler",
-                collapsed: false,
-                items: [
-                    { text: "▶️ Getting Started", link: "/compiler/getting-started" },
-                    { text: "1️⃣ Lexical Analysis", link: "/compiler/lexical-analysis" },
-                    { text: "2️⃣ Parsing", link: "/compiler/parsing" },
-                ]
-            }
+        nav: [
+            { text: "App Guide", link: "/application/getting-started/docker" },
+            { text: "System Intro", link: "/system/compiler/getting-started" },
         ],
 
+        sidebar: {
+            "/application/": [
+                {
+                    text: "Application Guide",
+                    items: [
+                        {
+                            text: "Getting started",
+                            collapsed: true,
+                            items: [
+                                { text: "🐋 Docker", link: "/application/getting-started/docker" },
+                                { text: "⚙️ Nginx", link: "/application/getting-started/nginx" },
+                            ]
+                        },
+                        {
+                            text: "More Practices",
+                            collapsed: true,
+                            items: []
+                        }
+                    ]
+                }
+            ],
+            "/system/": [
+                {
+                    text: "System Introduction",
+                    items: [
+                        {
+                            text: "Compiler",
+                            collapsed: true,
+                            items: [
+                                { text: "▶️ Getting Started", link: "/system/compiler/getting-started" },
+                                { text: "1️⃣ Lexical Analysis", link: "/system/compiler/lexical-analysis" },
+                                { text: "2️⃣ Parsing", link: "/system/compiler/parsing" },
+                            ]
+                        }
+                    ]
+                }
+            ],
+        },
+
         socialLinks: [
-            { icon: 'github', link: 'https://github.com/ChenYuTong10/10note' }
+            { icon: 'github', link: 'https://github.com/ChenYuTong10/notebook' }
         ],
 
         editLink: {
-            pattern: 'https://github.com/ChenYuTong10/10note/edit/master/docs/:path',
+            pattern: 'https://github.com/ChenYuTong10/notebook/edit/master/docs/:path',
             text: 'Edit this page on GitHub'
         },
 

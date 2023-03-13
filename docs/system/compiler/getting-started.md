@@ -11,7 +11,7 @@ The executable file is another program, such as assembly language, bytecode.
 Then it runs your data separately on this `.exe` file and gives out the output.
 It is similar to run your program offline.
 
-![compiler](/compiler/image/compiler-sketch.png)
+![compiler](/system/compiler/image/compiler-sketch.png)
 
 ### 🧱 Structure
 
@@ -39,7 +39,7 @@ The last step is **translating** our program to the goal. It can be assembly lan
     Just like what we do when seeing a sentence. Look at the following example.
     We can get some tokens like `I`, `am`, `a` and `sentence` and recognize them as a word.
     
-    ![lexical analysis](/compiler/image/lexical-analysis-human.png)
+    ![lexical analysis](/system/compiler/image/lexical-analysis-human.png)
 
     ::: tip
     The separator can be a white space, a semicolon and any other symbol.
@@ -53,7 +53,7 @@ The last step is **translating** our program to the goal. It can be assembly lan
     Like we human do, we separate the word into type like *article*, *noun*, *verb* and so on.
     Therefore, we can successfully understand the whole structure of the sentence.
 
-    ![parsing](/compiler/image/parsing-human.png)
+    ![parsing](/system/compiler/image/parsing-human.png)
 
 3. Semantic Analysis
 
@@ -65,7 +65,7 @@ The last step is **translating** our program to the goal. It can be assembly lan
     Obviously, you can't. Because `his` in these sentences can refer to more than one people.
     Only adding some context that we can understand `his` refer to Peter or Jerry and know the correct meaning.
 
-   ![semantic analysis](/compiler/image/semantic-analysis-human.png)
+   ![semantic analysis](/system/compiler/image/semantic-analysis-human.png)
 
 4. Optimization
 
@@ -87,7 +87,7 @@ The last step is **translating** our program to the goal. It can be assembly lan
 
 ### ⚔️ Comparison between ancient and modern compiler
 
-![semantic analysis](/compiler/image/compiler-comparison.png)
+![semantic analysis](/system/compiler/image/compiler-comparison.png)
 
 The most obvious difference from the picture we can see is the **optimization**.
 Modern compiler costs a lot of effort to optimize our programs.
@@ -97,4 +97,4 @@ Modern compiler costs a lot of effort to optimize our programs.
 *Interpreter* reads the program and the data as input. After running, it gives out the output.
 It is similar to run your program online.
 
-![interpretor](/compiler/image/interpretor-sketch.png)
+![interpretor](/system/compiler/image/interpretor-sketch.png)

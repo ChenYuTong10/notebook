@@ -11,7 +11,7 @@ hero:
   actions:
     - theme: brand
       text: Get Started
-      link: /application/docker
+      link: /application/getting-started/docker
     - theme: alt
       text: View on GitHub
       link: https://github.com/ChenYuTong10/notebook
@@ -21,8 +21,8 @@ features:
     title: Application Guide
     details: Effortlessly install and configure application with simple steps.
   - icon: 🔍
-    title: Principle Introduction
-    details: Introduce the underlying principle of system in personal view.
+    title: System Introduction
+    details: Introduce some knowledge of system straightforwardly.
   - icon: 🔮
     title: Resource Sharing
     details: Share good resources, such as beautiful fonts, icons and so on.

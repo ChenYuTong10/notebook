@@ -5,7 +5,7 @@
 In the previous section, we have introduced what is regular language.
 But the regular expression has its own disadvantage. Look at the following example.
 
-![regular expression disadvantage](/compiler/image/regular-expression-disadvantage.png)
+![regular expression disadvantage](/system/compiler/image/regular-expression-disadvantage.png)
 
 Assume that there is a string `11111` with 5 characters. When the machine inputs the string,
 the state will jump between the start state and the final state. Finally stop on the final state.
@@ -96,22 +96,22 @@ As you can see, the left side is a defined context-free grammar.
 
 And the right side is just a few expressions in the language defined by this grammar.
 
-![cfg language example](/compiler/image/cfg-language-example.png)
+![cfg language example](/system/compiler/image/cfg-language-example.png)
 
 We can draw each derivation as a tree. For example, a derivation $X → Y_1...Y_n$.
 The start symbol $X$ is the root of tree and the symbol $Y_1...Y_n$ are the children of the root.
 
-![cfg derivation tree](/compiler/image/cfg-derivation-tree.png)
+![cfg derivation tree](/system/compiler/image/cfg-derivation-tree.png)
 
 Now we are going to show two ways to produce the derivation for the string `id * id + id`.
 
 This is the one of the derivations.
 
-![cfg left most derivation tree](/compiler/image/cfg-left-most-derivation.png)
+![cfg left most derivation tree](/system/compiler/image/cfg-left-most-derivation.png)
 
 This is the other one of the derivations.
 
-![cfg right most derivation tree](/compiler/image/cfg-right-most-derivation.png)
+![cfg right most derivation tree](/system/compiler/image/cfg-right-most-derivation.png)
 
 There are some questions about two derivations.
 
@@ -136,7 +136,7 @@ A3: The difference is the former derivation always replaces the left-most non-te
 Let's discuss a critical problem about the parse tree.
 Look at the same string `id * id + id` with a different parse tree.
 
-![cfg ambiguity](/compiler/image/cfg-ambiguity.png)
+![cfg ambiguity](/system/compiler/image/cfg-ambiguity.png)
 
 The same string `id * id + id` has different parse trees.
 
@@ -150,7 +150,7 @@ It is up to the compiler's decision. It is horrible.
 How can we handle this ambiguity? The direct way is to **rewrite the grammar unambiguously**.
 See the grammar below. It ensures only one parse tree for each string.
 
-![cfg unambiguity](/compiler/image/cfg-unambiguity.png)
+![cfg unambiguity](/system/compiler/image/cfg-unambiguity.png)
 
 From the productions of CFG, we can see:
 
@@ -177,7 +177,7 @@ There is a CFG with two productions $E → E + E, E → int$.
 The grammar is ambiguous when the string is `int + int + int`.
 Here are two different parse trees of the string.
 
-![cfg ambiguity example](/compiler/image/cfg-ambiguity-example.png)
+![cfg ambiguity example](/system/compiler/image/cfg-ambiguity-example.png)
 
 Now we use bison tool to declare a left associativity of plus `%left +`.
 The parse tree below will be no longer valid after disambiguating grammar.

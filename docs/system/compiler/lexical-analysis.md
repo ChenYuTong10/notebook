@@ -16,7 +16,7 @@ Instead, it sees the program only one line with white space.
 White space here refers to not only the blank, but also the escaped character.
 :::
 
-![compiler view](/compiler/image/compiler-view.png)
+![compiler view](/system/compiler/image/compiler-view.png)
 
 The compiler scans the input strings from left to right and recognizes substrings according to white space.
 These substrings recognized we call them **lexemes**.
@@ -49,7 +49,7 @@ The class may be `Number`, `Keyword`, `Identifier`, `Operator` and so on.
 Finally, the compiler will combine the lexemes and their corresponding class to a series of pairs looks like `<class, lexeme>` and then passing the result to the next step.
 These pairs we call them **tokens**.
 
-![lexical analysis progress](/compiler/image/lexical-analysis-progress.png)
+![lexical analysis progress](/system/compiler/image/lexical-analysis-progress.png)
 
 ## 🔍 How does LA do
 
@@ -112,7 +112,7 @@ So you can check specific strings written by this language whether consistent wi
 
 We use some signs to show some different states and transitions. There are also some special conditions marked in chart.
 
-![state and transition](/compiler/image/state-transition.png)
+![state and transition](/system/compiler/image/state-transition.png)
 
 > **Epsilon-move** enables machine to move next without input any string.
 
@@ -120,7 +120,7 @@ Let's use an example to see how finite automata check the strings.
 
 Assume there is a language accepts only "1". And we can get a finite automata flowchart like following.
 
-![finite antomata flowchart](/compiler/image/finite-automata-flowchart.png)
+![finite antomata flowchart](/system/compiler/image/finite-automata-flowchart.png)
 
 In case 1, the scanner pointer scans the input `1` and allows automata take a transition from `A` to `B`.
 Then the automata is in accepting state and the pointer is at the end of input string. The input is **accepted**.
@@ -152,18 +152,18 @@ DFA only has a state per transition. Less state and more accurate transition. It
 
 So from the features of NFA and DFA, we usually transform the regular expression to NFA firstly and then transform NFA to DFA.
 
-![dfa nfa transition](/compiler/image/dfa-nfa-transition.png)
+![dfa nfa transition](/system/compiler/image/dfa-nfa-transition.png)
 
 The problem is how we transform our written regular expressions to the equivalent finite automata.
 Let's try to transform to the NFA firstly. Look at the table.
 
 |        Construct        | Description |                           Corresponding NFA                           |
 |:-----------------------:|:-----------:|:---------------------------------------------------------------------:|
-|  Empty string(Epsilon)  |     $ε$     |            ![epsilon nfa](/compiler/image/epsilon-nfa.png)            |
-| Single character string | $\{ 'a' \}$ | ![single character nfa.png](/compiler/image/single-character-nfa.png) |
-|      Union string       |    $AB$     |            ![union nfa.png](/compiler/image/union-nfa.png)            |
-|  Concatenation string   |   $A + B$   |    ![concatenation nfa.png](/compiler/image/concatenation-nfa.png)    |
-|    Iteration string     |   $A ^ *$   |        ![iteration nfa.png](/compiler/image/iteration-nfa.png)        |
+|  Empty string(Epsilon)  |     $ε$     |            ![epsilon nfa](/system/compiler/image/epsilon-nfa.png)            |
+| Single character string | $\{ 'a' \}$ | ![single character nfa.png](/system/compiler/image/single-character-nfa.png) |
+|      Union string       |    $AB$     |            ![union nfa.png](/system/compiler/image/union-nfa.png)            |
+|  Concatenation string   |   $A + B$   |    ![concatenation nfa.png](/system/compiler/image/concatenation-nfa.png)    |
+|    Iteration string     |   $A ^ *$   |        ![iteration nfa.png](/system/compiler/image/iteration-nfa.png)        |
 
 Maybe showing an example is more distinct.
 
@@ -171,31 +171,31 @@ Assume there is a regular expression $(1 + 0) ^ *1$. What is its NFA?
 
 Look at $1$ and $0$ in brackets. We construct their NFA firstly.
 
-![regexp to nfa example 1](/compiler/image/regexp-to-nfa-example-1.png)
+![regexp to nfa example 1](/system/compiler/image/regexp-to-nfa-example-1.png)
 
 It is easy! And next we construct $1 + 0$ 's NFA. Consider $1$'s NFA with `State A` and $0$ 's with `State B`.
 After that, replace the `State A` and `State B` in `A + B`'s NFA.
 
-![regexp to nfa example 2](/compiler/image/regexp-to-nfa-example-2.png)
+![regexp to nfa example 2](/system/compiler/image/regexp-to-nfa-example-2.png)
 
 Then it is time to construct $(1 + 0) ^ *$'s NFA. Wrap the whole NFA above with `State A`.
 And replace the `State A` in $A ^ *$'s NFA. It is the same.
 
-![regexp to nfa example 3](/compiler/image/regexp-to-nfa-example-3.png)
+![regexp to nfa example 3](/system/compiler/image/regexp-to-nfa-example-3.png)
 
 Now it seems large. But don't be afraid. Now let's construct the last $1$ 's NFA.
 
-![regexp to nfa example 4](/compiler/image/regexp-to-nfa-example-4.png)
+![regexp to nfa example 4](/system/compiler/image/regexp-to-nfa-example-4.png)
 
 Finally, merge $(1 + 0) ^ *$ 's NFA and $1$ 's into a NFA.
 
-![regexp to nfa example 5](/compiler/image/regexp-to-nfa-example-5.png)
+![regexp to nfa example 5](/system/compiler/image/regexp-to-nfa-example-5.png)
 
 🎉 Congratulations! We transform the regular expression to NFA successfully!
 
 Before transforming NFA to DFA, let us look at a new thing `ε-closure`. See the following NFA with the given states.
 
-![ε-closure](/compiler/image/ε-closure.png)
+![ε-closure](/system/compiler/image/ε-closure.png)
 
 Assume that the NFA is on state B, it can have a transition to the `State C, D` when input `ε`. So `ε-closure(B) = { B, C, D }`.
 
@@ -210,19 +210,19 @@ Now knowing the `ε-closure`, let's start to transform NFA to DFA.
 
 The ε-closure of NFA start state is `{ A, B, C, D, H, I }`. We merge them within a group to be the start state of DFA.
 
-![nfa to dfa 1](/compiler/image/nfa-to-dfa-1.png)
+![nfa to dfa 1](/system/compiler/image/nfa-to-dfa-1.png)
 
 Next let's see what happen when the DFA inputs `0`. It will transition to the `State F`. And the `ε-closure(F) = { A, B, C, D, F, G, H, I }`.
 
-![nfa to dfa 2](/compiler/image/nfa-to-dfa-2.png)
+![nfa to dfa 2](/system/compiler/image/nfa-to-dfa-2.png)
 
 Then when the DFA input `1` from start state, it may like this.
 
-![nfa to dfa 3](/compiler/image/nfa-to-dfa-3.png)
+![nfa to dfa 3](/system/compiler/image/nfa-to-dfa-3.png)
 
 And so on, we combine the whole conditions and get a DFA like following.
 
-![nfa to dfa 4](/compiler/image/nfa-to-dfa-4.png)
+![nfa to dfa 4](/system/compiler/image/nfa-to-dfa-4.png)
 
 🎉 Congratulations! We transform the NFA to DFA successfully!
 
@@ -258,5 +258,5 @@ bool LA(std::string input)
 There is an optimization for the DFA relation table above.
 We can see there are three same rows, so we can share one of it to make it more impact.
 
-![dfa optimization](/compiler/image/dfa-optimization.png)
+![dfa optimization](/system/compiler/image/dfa-optimization.png)
 :::
