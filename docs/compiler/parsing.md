@@ -186,7 +186,7 @@ The parse tree below will be no longer valid after disambiguating grammar.
 
 ## 💊 Error Handling
 
-There are many kinds of possible errors.
+There are many kinds of possible errors in program.
 
 | Error Kind |         Description          |       Example        |   Detector   |
 |:----------:|:----------------------------:|:--------------------:|:------------:|
@@ -195,12 +195,12 @@ There are many kinds of possible errors.
 |  Semantic  | Uncorrected types and so on  | int x = 0, y = x(1); | Type Checker |
 |    ...     |             ...              |         ...          |     ...      |
 
-A good error handler should be:
+A good error handler should:
 - Report the error accurately and clearly.
 - Recover from the error quickly.
 - Not slow down the compilation of valid code.
 
-We are going to introduce three different kinds of error handling.
+Next we are going to introduce three different kinds of error handling.
 
 ### 🩼 Panic Mode
 
@@ -214,8 +214,8 @@ In panic mode, the compiler will discard the `+` token and skip ahead to the `2`
 In bison tool, a special terminal `error` is used in productions to describe how much input should be skipped.
 
 Look at the production $E → int | E + E | (E) | error\ int | (error)$.
-The compiler will try to find a normal state firstly and 
-then if no state is recognized, the compiler will declare an `error` state.
+The compiler will try to find a normal state firstly.
+But if no state is recognized, it will declare an `error` state.
 The state $error\ int$ shows all tokens before next integer will be discarded
 and the another state $(error)$ indicates everything between parentheses will be thrown.
 
@@ -226,17 +226,17 @@ The basic idea of error productions is merging known common mistakes into gramma
 For example, the scientists always write math expression `4x` instead of `4 * x`.
 So when we consider the productions of CFG, we will add the production $E → E * E \vert EE$.
 
-But merging the error into productions may complicate the language grammar.
+In other hand, merging the error into productions may complicate the language grammar.
 
 ### 🩹 Error Correction
 
 Error correction will try to insert or delete the tokens to correct program automatically.
-When the compiler meets an error, it will exhaustive search a program as close as possible
+When the compiler meets an error, it will search a program as close as possible
 to the original program and corrects the error.
 
-> Here you will touch **the minimum edit distance algorithm**.
+> Here you will learn about the **minimum edit distance algorithm**.
 
 It sounds good, right? However, it is hard to implement a compiler like this.
+You may need to consider where to insert or delete the fragments in program and where to find the closest, the most fit program? 
+What's more, the resources used to search the program and correct the errors will slow down the speed of parsing valid program.
 
-1. Where to insert or delete the fragments in program? Where to find the closest program?
-2. The resources used to search the program and correct the errors will slow down the speed of parsing valid program.
